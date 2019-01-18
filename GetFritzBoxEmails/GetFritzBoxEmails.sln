@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetFritzBoxEmails", "GetFritzBoxEmails\GetFritzBoxEmails.csproj", "{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDDEA078-B08A-466B-B7C9-F1E145A6B539}
+	EndGlobalSection
+EndGlobal
