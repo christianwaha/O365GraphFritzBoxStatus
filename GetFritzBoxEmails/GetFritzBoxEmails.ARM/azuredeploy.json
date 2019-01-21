@@ -48,7 +48,7 @@
     }
   },
   "variables": {
-    "var_cd_template_uri": "[concat(parameters('deployment_storageaccount_uri'),'/',parameters('deployment_release'),'/GetFritzBoxEmails.ARM/CosmosDB/','azurecosmosdbmaster.json',  parameters('deployment_storageaccount_token'))]",
+    "var_cd_template_uri": "[concat(parameters('deployment_storageaccount_uri'),parameters('deployment_release'),'/GetFritzBoxEmails.ARM/CosmosDB/','azurecosmosdbmaster.json',  parameters('deployment_storageaccount_token'))]",
     "cosmosdb_account_name": "parameters('deployment_cosmosdb_account_name')"
   },
   "resources": [
