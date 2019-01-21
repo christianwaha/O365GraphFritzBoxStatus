@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetFritzBoxEmails", "GetFritzBoxEmails\GetFritzBoxEmails.csproj", "{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetFritzBoxEmails", "GetFritzBoxEmails\GetFritzBoxEmails.csproj", "{F7C8BCA8-36F4-4123-9F3C-468B5C1F7880}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "O365GraphToolbox", "O365GraphToolbox\O365GraphToolbox.csproj", "{AED1F39A-805E-402F-8879-AD649D257755}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "GetFritzBoxEmails.ARM", "GetFritzBoxEmails.ARM\GetFritzBoxEmails.ARM.deployproj", "{5395A01A-255A-46D5-A65D-D631DABFE8C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BD0CA8E-E54A-4CCF-AA7E-8DE2BD0FEC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C8BCA8-36F4-4123-9F3C-468B5C1F7880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C8BCA8-36F4-4123-9F3C-468B5C1F7880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C8BCA8-36F4-4123-9F3C-468B5C1F7880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C8BCA8-36F4-4123-9F3C-468B5C1F7880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED1F39A-805E-402F-8879-AD649D257755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED1F39A-805E-402F-8879-AD649D257755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED1F39A-805E-402F-8879-AD649D257755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED1F39A-805E-402F-8879-AD649D257755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5395A01A-255A-46D5-A65D-D631DABFE8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5395A01A-255A-46D5-A65D-D631DABFE8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5395A01A-255A-46D5-A65D-D631DABFE8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5395A01A-255A-46D5-A65D-D631DABFE8C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

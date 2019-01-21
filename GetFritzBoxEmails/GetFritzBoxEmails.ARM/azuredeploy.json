@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployment_release": {
+      "defaultValue": "001",
+      "type": "string"
+    },
+    "deployment_artifact_azureresources": {
+      "defaultValue": "001",
+      "type": "string"
+    },
+    "deployment_artifact_functionscode": {
+      "defaultValue": "001",
+      "type": "string"
+    },
+    "deployment_mode": {
+      "defaultValue": "Incremental",
+      "type": "string"
+    },
+    "deployment_location": {
+      "defaultValue": "northeurope",
+      "type": "string"
+    },
+    "deployment_cosmosdb_active": {
+      "defaultValue": "false",
+      "type": "bool"
+    },
+    "deployment_cosmosdb_account_name": {
+      "defaultValue": "cosmostest-cwlabs",
+      "type": "string"
+    },
+    "deployment_cosmosdb_account_default_experience": {
+      "defaultValue": "Core (SQL)",
+      "type": "string"
+    },
+    "deployment_storageaccount_uri": {
+      "defaultValue": "http://123.sbc",
+      "type": "string"
+    },
+    "deployment_storageaccount_token": {
+      "defaultValue": "XYZTTFHGFDSFfsrrweerwe",
+      "type": "string"
+    },
+    "global_tenantId": {
+      "defaultValue": "000000-00000000-000000",
+      "type": "securestring"
+    }
+  },
+  "variables": {
+    "var_cd_template_uri": "[concat(parameters('deployment_storageaccount_uri'),'/',parameters('deployment_release'),'/CosmosDB/','azurecosmosdbmaster.json',  parameters('deployment_storageaccount_token'))]",
+    "cosmosdb_account_name": "parameters('deployment_cosmosdb_account_name')"
+  },
+  "resources": [
+    {
+      "condition": "[parameters('deployment_cosmosdb_active')]",
+      "apiVersion": "2017-05-10",
+      "name": "[concat('CosmosDBDeployment-', parameters('deployment_release'))]",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "[parameters('deployment_mode')]",
+        "templateLink": {
+          "uri": "[variables('var_cd_template_uri')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "deployment_location": { "value": "[parameters('deployment_location')]" },
+          "deployment_mode": { "value": "[parameters('deployment_mode')]" },
+          "deployment_release": { "value": "[parameters('deployment_release')]" },
+          "deployment_artifact_azureresources": { "value": "[parameters('deployment_artifact_azureresources')]" },
+          "deployment_artifact_functionscode": { "value": "[parameters('deployment_artifact_functionscode')]" },
+          "cosmosdb_account_name": { "value": "[variables('cosmosdb_account_name')]" },
+          "cosmosdb_account_default_experience": { "value": "[parameters('deployment_cosmosdb_account_default_experience')]" }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "COSMOSDBNAME": {
+      "type": "string",
+      "value": "[variables('cosmosdb_account_name')]"
+    }
+  }
+}
