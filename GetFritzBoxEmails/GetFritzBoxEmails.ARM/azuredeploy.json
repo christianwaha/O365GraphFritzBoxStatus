@@ -26,13 +26,9 @@
       "defaultValue": "false",
       "type": "bool"
     },
-    "deployment_cosmosdb_account_name": {
-      "defaultValue": "cosmostest-cwlabs",
-      "type": "string"
-    },
-    "deployment_cosmosdb_account_default_experience": {
-      "defaultValue": "Core (SQL)",
-      "type": "string"
+    "deployment_storageaccount_active": {
+      "defaultValue": "false",
+      "type": "bool"
     },
     "deployment_storageaccount_uri": {
       "defaultValue": "http://123.sbc",
@@ -45,11 +41,25 @@
     "global_tenantId": {
       "defaultValue": "000000-00000000-000000",
       "type": "securestring"
+    },
+    "cosmosdb_account_name": {
+      "defaultValue": "cosmostest-cwlabs",
+      "type": "string"
+    },
+    "cosmosdb_account_default_experience": {
+      "defaultValue": "Core (SQL)",
+      "type": "string"
+    },
+    "storage_account_name": {
+      "defaultValue": "storageaccountcwlabs01",
+      "type": "string"
     }
   },
   "variables": {
     "var_cd_template_uri": "[concat(parameters('deployment_storageaccount_uri'),parameters('deployment_release'),'/GetFritzBoxEmails.ARM/CosmosDB/','azurecosmosdbmaster.json',  parameters('deployment_storageaccount_token'))]",
-    "cosmosdb_account_name": "[parameters('deployment_cosmosdb_account_name')]"
+    "var_sa_template_uri": "[concat(parameters('deployment_storageaccount_uri'),parameters('deployment_release'),'/GetFritzBoxEmails.ARM/StorageAccount/','azurestorageaccountmaster.json',  parameters('deployment_storageaccount_token'))]",
+    "cosmosdb_account_name": "[parameters('cosmosdb_account_name')]",
+    "storage_account_name": "[parameters('storage_account_name')]"
   },
   "resources": [
     {
@@ -70,7 +80,28 @@
           "deployment_artifact_azureresources": { "value": "[parameters('deployment_artifact_azureresources')]" },
           "deployment_artifact_functionscode": { "value": "[parameters('deployment_artifact_functionscode')]" },
           "cosmosdb_account_name": { "value": "[variables('cosmosdb_account_name')]" },
-          "cosmosdb_account_default_experience": { "value": "[parameters('deployment_cosmosdb_account_default_experience')]" }
+          "cosmosdb_account_default_experience": { "value": "[parameters('cosmosdb_account_default_experience')]" }
+        }
+      }
+    },
+    {
+      "condition": "[parameters('deployment_storageaccount_active')]",
+      "apiVersion": "2017-05-10",
+      "name": "[concat('StorageAccountDeployment-', parameters('deployment_release'))]",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "[parameters('deployment_mode')]",
+        "templateLink": {
+          "uri": "[variables('var_cd_template_uri')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "deployment_location": { "value": "[parameters('deployment_location')]" },
+          "deployment_mode": { "value": "[parameters('deployment_mode')]" },
+          "deployment_release": { "value": "[parameters('deployment_release')]" },
+          "deployment_artifact_azureresources": { "value": "[parameters('deployment_artifact_azureresources')]" },
+          "deployment_artifact_functionscode": { "value": "[parameters('deployment_artifact_functionscode')]" },
+          "storage_account_name": { "value": "[variables('storage_account_name')]" }
         }
       }
     }
