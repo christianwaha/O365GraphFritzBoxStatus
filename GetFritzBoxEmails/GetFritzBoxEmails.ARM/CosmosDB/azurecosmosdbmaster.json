@@ -41,7 +41,10 @@
       "apiVersion": "2015-04-08",
       "location": "[parameters('deployment_location')]",
       "tags": {
-        "defaultExperience": "Core (SQL)"
+        "defaultExperience": "Core (SQL)",
+        "ARM Template BuildId": "[parameters('deployment_artifact_azureresources')]",
+        "Function BuildId": "[parameters('deployment_artifact_functionscode')]",
+        "Release": "[parameters('deployment_release')]"
       },
       "scale": null,
       "properties": {
