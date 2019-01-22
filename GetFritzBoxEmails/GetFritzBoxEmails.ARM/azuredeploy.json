@@ -92,7 +92,7 @@
       "properties": {
         "mode": "[parameters('deployment_mode')]",
         "templateLink": {
-          "uri": "[variables('var_cd_template_uri')]",
+          "uri": "[variables('var_sa_template_uri')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
