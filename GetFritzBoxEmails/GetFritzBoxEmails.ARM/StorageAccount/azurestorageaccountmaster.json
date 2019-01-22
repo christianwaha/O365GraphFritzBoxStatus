@@ -37,7 +37,7 @@
         "name": "Standard_LRS",
         "tier": "Standard"
       },
-      "kind": "Storage",
+      "kind": "StorageV2",
       "name": "[parameters('storage_account_name')]",
       "apiVersion": "2018-07-01",
       "location": "[parameters('deployment_location')]",
@@ -66,7 +66,8 @@
             }
           },
           "keySource": "Microsoft.Storage"
-        }
+        },
+        "accessTier": "Hot"
       },
       "dependsOn": []
     }
